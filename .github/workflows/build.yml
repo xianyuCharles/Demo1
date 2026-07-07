@@ -1,0 +1,39 @@
+name: Build Windows EXE
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install pyinstaller pandas openpyxl jinja2
+      - name: Build EXE
+        run: |
+          pyinstaller --onefile `
+            --name "订单数据处理工具" `
+            --add-data "modules;modules" `
+            --hidden-import pandas `
+            --hidden-import openpyxl `
+            --hidden-import jinja2 `
+            --console `
+            scripts/process.py
+      - name: Prepare package
+        run: |
+          mkdir 交付包
+          copy dist\订单数据处理工具.exe 交付包\
+          mkdir 交付包\input
+          mkdir 交付包\output
+          xcopy /e /y /q input 交付包\input\
+      - uses: actions/upload-artifact@v4
+        with:
+          name: demo1-delivery
+          path: 交付包/
+          retention-days: 90
