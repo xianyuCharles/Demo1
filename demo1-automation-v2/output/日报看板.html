@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>销售日报看板</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+        .header .time {
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .card .label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .card .value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+        .card .value.primary {
+            color: #667eea;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+        tr:hover {
+            background: #f8f9fa;
+        }
+        .footer {
+            text-align: center;
+            color: #999;
+            padding: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 销售日报看板</h1>
+            <div class="time">生成时间：2026-07-07 18:22:51</div>
+        </div>
+        
+        <div class="summary-cards">
+            <div class="card">
+                <div class="label">总订单数</div>
+                <div class="value">15</div>
+            </div>
+            <div class="card">
+                <div class="label">销售总额</div>
+                <div class="value primary">¥9373.7</div>
+            </div>
+            <div class="card">
+                <div class="label">平均客单价</div>
+                <div class="value">¥624.91</div>
+            </div>
+            <div class="card">
+                <div class="label">数据质量</div>
+                <div class="value">1 错误 / 2 警告</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📅 每日销售趋势</h2>
+            <table>
+<thead>
+<tr>
+<th>日期</th>
+<th>销售总额</th>
+<th>订单数</th>
+<th>平均客单价</th>
+<th>有效订单数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2024-01-15</td>
+<td>797.0</td>
+<td>2</td>
+<td>398.5</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2024-01-16</td>
+<td>1388.7</td>
+<td>2</td>
+<td>694.35</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2024-01-17</td>
+<td>427.9</td>
+<td>2</td>
+<td>213.95</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2024-01-18</td>
+<td>3196.0</td>
+<td>2</td>
+<td>1598.0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2024-01-19</td>
+<td>958.8</td>
+<td>2</td>
+<td>479.4</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2024-01-20</td>
+<td>418.6</td>
+<td>2</td>
+<td>209.3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2024-01-21</td>
+<td>2097.0</td>
+<td>2</td>
+<td>1048.5</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2024-01-22</td>
+<td>89.7</td>
+<td>1</td>
+<td>89.7</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+        </div>
+        
+        <div class="section">
+            <h2>📦 品类销售排行</h2>
+            <table>
+<thead>
+<tr>
+<th>品类</th>
+<th>销售总额</th>
+<th>商品数量</th>
+<th>订单数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>电子产品</td>
+<td>6993.0</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>服装</td>
+<td>1992.0</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>食品</td>
+<td>388.7</td>
+<td>5</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+        </div>
+        
+        <div class="section">
+            <h2>🏪 渠道销售分布</h2>
+            <table>
+<thead>
+<tr>
+<th>渠道</th>
+<th>销售总额</th>
+<th>订单数</th>
+<th>有效订单数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>淘宝</td>
+<td>3674.4</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr>
+<td>京东</td>
+<td>3097.0</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>抖音</td>
+<td>1796.0</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>拼多多</td>
+<td>806.3</td>
+<td>3</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+        </div>
+        
+        <div class="section">
+            <h2>🗺️ 地区销售分布</h2>
+            <table>
+<thead>
+<tr>
+<th>地区</th>
+<th>销售总额</th>
+<th>订单数</th>
+<th>有效订单数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>武汉</td>
+<td>2599.0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>长沙</td>
+<td>1598.0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>深圳</td>
+<td>1299.0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>西安</td>
+<td>899.0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>北京</td>
+<td>598.0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>南京</td>
+<td>597.0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>郑州</td>
+<td>499.0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>杭州</td>
+<td>398.0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>天津</td>
+<td>299.0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>上海</td>
+<td>199.0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>苏州</td>
+<td>119.6</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>青岛</td>
+<td>89.7</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>广州</td>
+<td>89.7</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>重庆</td>
+<td>59.8</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>成都</td>
+<td>29.9</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+        </div>
+        
+        <div class="footer">
+            由 Demo1 自动化系统生成 | 星亦网络科技工作室
+        </div>
+    </div>
+</body>
+</html>
+        
